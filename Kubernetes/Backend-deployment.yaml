@@ -1,0 +1,22 @@
+piVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hospitalrun-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hospitalrun-backend
+  template:
+    metadata:
+      labels:
+        app: hospitalrun-backend
+    spec:
+      containers:
+        - name: backend
+          image: 
+          ports:
+            - containerPort: 3000
+          env:
+            - name: MONGO_URI
+              value: "mongodb://hospitalrun-mongo:27017/hospitalrun"
